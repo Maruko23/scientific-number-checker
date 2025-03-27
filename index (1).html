@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        /* Background utama dengan efek blur */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0a1931, #172a45);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Container utama */
+        .container {
+            background: rgba(15, 32, 72, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            width: 340px; /* Lebih besar sedikit */
+            position: relative;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        /* Menu utama */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            font-size: 14px;
+            padding: 10px 14px;
+            background-color: rgba(15, 32, 72, 0.9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 75px;
+            text-align: center;
+        }
+
+        .menu button:hover {
+            background-color: rgba(25, 45, 90, 1);
+        }
+
+        /* Input field */
+        input {
+            font-size: 16px;
+            padding: 12px;
+            width: 80%; /* Lebih pendek dari box utama */
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            background: #1b3358;
+            color: white;
+            outline: none;
+        }
+
+        /* Tombol Check */
+        button.check {
+            font-size: 16px;
+            padding: 10px; /* Lebih kecil dari input */
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+            width: 70%; /* Lebih kecil dari input */
+        }
+
+        button.check:hover {
+            background-color: #b85c1d;
+        }
+
+        /* Hasil Output */
+        .result {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #ffffff;
+        }
+
+        /* Teks Design by MarkSndkh di bagian bawah */
+        .design-text {
+            font-size: 12px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.5); /* Warna semi transparan */
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Footer untuk menempatkan teks di bagian bawah */
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <button onclick="alert('Save Clicked')">File</button>
+        <button onclick="alert('Copy Clicked')">Edit</button>
+        <button onclick="checkNumber()">Run</button>
+        <button onclick="alert('Marko Fredlis Sondakh (231011060072)')">About Us</button>
+    </div>
+
+    <div class="container">
+        <h2>Scientific Number Checker</h2>
+        <input type="text" id="numberInput" placeholder="Enter a number">
+        <button class="check" onclick="checkNumber()">Check</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <!-- Teks Design by MarkSndkh dipindahkan ke paling bawah -->
+    <div class="footer">
+        <p class="design-text">Design by MarkSndkh</p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            let input = document.getElementById("numberInput").value.trim();
+            let scientificPattern = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+
+            if (scientificPattern.test(input)) {
+                document.getElementById("result").innerText = "Yes, it is a number";
+            } else {
+                document.getElementById("result").innerText = "No, it is not a number";
+            }
+        }
+    </script>
+
+</body>
+</html>
